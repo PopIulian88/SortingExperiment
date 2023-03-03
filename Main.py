@@ -6,9 +6,12 @@ import sorts.BubbleSort
 import sorts.MergeSort
 import sorts.Numarare
 import sorts.QuickSort
+import sys
 
-N = 10
-#NumGenerator.numGenerator(N)
+sys.setrecursionlimit(5000)
+
+N = 10_000
+NumGenerator.numGenerator(N)
 
 with open("sir.txt", "r") as f:
     text = f.read()
@@ -54,10 +57,10 @@ match choice:
         sortedList = sorts.QuickSort.quickSort(intList, 1, N)
 
 end = time.time()
+print("{0:.3f}".format(end - start))
 
 sortedList.remove(0) #pentru a elimina primul 0 pus
 with open("afis.txt", "w") as f: # pentru scrierea in fisierul de afisare
     for i in sortedList:
         f.write(str(i) + "\n")
 
-print("{0:.6f}".format(end - start))
